@@ -33,7 +33,10 @@ Then open `http://localhost:5173` in your browser.
 - Managing playback state across components
 - Structuring a multi-component React app
 
-## credits
+markdown## credits
 
 Built following this [Pedro Tech](https://youtu.be/r47C9c4qCqE?si=ike2vUe4-NKQNz0y) tutorial on YouTube.
-Sample audio tracks sourced from the tutorial.
+
+## notes
+
+Audio files are not included in this repo due to file size.ze.
