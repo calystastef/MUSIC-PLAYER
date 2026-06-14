@@ -2,6 +2,9 @@
 
 A music player web app built with React. Browse and play tracks with a clean, custom-built UI.
 
+## live demo 
+[Play it here](https://music-player-drab-sigma.vercel.app/)
+
 ## tech stack
 
 - React 19
