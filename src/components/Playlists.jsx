@@ -11,7 +11,7 @@ export const Playlists = () => {
     const [dropdownPos, setDropdownPos] = useState({ top: 0, left: 0, width: 0 });
     const containerRefs = useRef({});
 
-    const {allSongs, playlists, createPlaylist, addSongToPlaylist} = useMusic();
+    const {allSongs, playlists, createPlaylist, addSongToPlaylist, currentTrackIndex, handlePlaySong, deletePlaylist} = useMusic();
 
     const filteredSongs = allSongs.filter((song) => {
         const matches = song.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -45,6 +45,16 @@ export const Playlists = () => {
         }
     };
 
+    const handlePlayFromPlaylist = (song) => {
+        const globalIndex = allSongs.findIndex((s) => s.id === song.id);
+        handlePlaySong(song, globalIndex);
+    };
+
+    const deletePlaylistConfirmation = (playlist) => {
+        if(window.confirm(`Are you sure you want to delete "${playlist.name}"?`)){
+            deletePlaylist(playlist.id)
+        }
+    };
     return (
         <div className="playlists">
             <h2>Playlists</h2>
@@ -73,7 +83,7 @@ export const Playlists = () => {
                         <div className="playlist-header">
                             <h3>{playlist.name}</h3>
                             <div className = "playlist-actions">
-                                <button className="delete-playlist-btn">Delete</button>
+                                <button className="delete-playlist-btn" onClick={() => deletePlaylistConfirmation(playlist)}>Delete</button>
                             </div>
                         </div>
 
@@ -129,7 +139,11 @@ export const Playlists = () => {
                                 <p className = "empty-playlist">No songs in this playlist</p>
                             ) : (
                                 playlist.songs.map((song,key) => (
-                                    <div key={key} className={`playlist-song`}> 
+                                    <div key={key} 
+                                        className={`playlist-song ${
+                                            currentTrackIndex === 
+                                                allSongs.findIndex((s) => s.id ===song.id) ? "active" : ""}`}
+                                        onClick = {() => handlePlayFromPlaylist(song)}> 
                                         <div className="song-info">
                                             <span className="song-title">{song.title}</span>
                                             <span className="song-artist">{song.artist}</span>
