@@ -1,8 +1,9 @@
 # Music Player
 
-A music player web app built with React. Browse and play tracks with a clean, custom-built UI.
+A music player web app built with React and Vite. Browse tracks, manage playlists, and control playback with a clean, custom-built UI.
 
-## live demo 
+## live demo
+
 [Play it here](https://music-player-drab-sigma.vercel.app/)
 
 ## tech stack
@@ -15,31 +16,39 @@ A music player web app built with React. Browse and play tracks with a clean, cu
 
 ## features
 
-- Play, pause, skip tracks
+- Play, pause, and skip tracks
 - Track progress bar
-- Playlist navigation
+- Playlist creation, navigation, and persistence
+- Filter songs when adding to a playlist
 - React Router for page routing
 
-## getting started
+## project structure
 
-```bash
-npm install
-npm run dev
 ```
-
-Then open `http://localhost:5173` in your browser.
+src/
+├── components/
+│   ├── AllSongs.jsx       # Song list with playback controls
+│   ├── MusicPlayer.jsx    # Player bar with progress and controls
+│   ├── NavBar.jsx         # Navigation between pages
+│   └── Playlists.jsx      # Playlist view and management
+├── contexts/
+│   └── MusicContext.jsx   # Global playback and playlist state
+├── App.jsx                # Root component and routing setup
+└── index.css
+```
 
 ## what I learned
 
 - React Router for client-side navigation
 - Audio playback with the HTML5 Audio API
-- Managing playback state across components
-- Structuring a multi-component React app
+- Managing playback state across components with Context API
+- Persisting data to localStorage
+- Structuring a multi-page React app
 
-markdown## credits
+## credits
 
-Built following this [Pedro Tech](https://youtu.be/r47C9c4qCqE?si=ike2vUe4-NKQNz0y) tutorial on YouTube.
+Built following [Pedro Tech](https://youtu.be/r47C9c4qCqE?si=ike2vUe4-NKQNz0y) tutorial on YouTube.
 
 ## notes
 
-Audio files are not included in this repo due to file size.ze.
+Audio files are not included in this repo due to file size.
