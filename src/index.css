@@ -669,18 +669,14 @@ body {
 }
 
 .song-dropdown {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
+  position: fixed;
   background: rgba(0, 0, 0, 0.9);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 8px;
-  margin-top: 0.25rem;
   max-height: 200px;
   overflow-y: auto;
-  z-index: 10;
+  z-index: 1000;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
 }
 
